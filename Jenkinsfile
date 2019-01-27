@@ -3,9 +3,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-      def doesJavaRock = input(message: 'Do you like Java?', ok: 'Yes', 
-                        parameters: [booleanParam(defaultValue: true, 
-                        description: 'If you like Java, just push the button',name: 'Yes?')])
+        script {
+          def doesJavaRock = input(message: 'Do you like Java?', ok: 'Yes', 
+                            parameters: [booleanParam(defaultValue: true, 
+                            description: 'If you like Java, just push the button',name: 'Yes?')])
+        }
         sh 'mvn clean install -DskipTests'
       }
     }
