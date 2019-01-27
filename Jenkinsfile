@@ -12,7 +12,7 @@ pipeline {
           def executeTests = input(message: 'Uitvoeren van de tests?', ok: 'Ja', 
                             parameters: [booleanParam(defaultValue: true, 
                             description: 'Bepaal of u de test wilt uitvoeren klik dan op',name: 'Ja?')])
-          println 'executeTests heeft de waarde ' + userInput.executeTests
+          println 'executeTests heeft de waarde ' + executeTests
         }     
 
         sh 'mvn test'                    
